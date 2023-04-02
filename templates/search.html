@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Results - Semantic Search - Srikar Kashyap Pulipaka</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+        h1,p,h2,form {
+            text-align: center;
+        }
+        </style>
+    </head>
+    <body>
+            <form action="search" method="post">
+        <input type="text" name="query" placeholder="Search here...">
+        <input type="checkbox" name="graduate" value="graduate"> Only Graduate Courses
+       <!-- bootstrap submit button -->
+        <input type="submit" class="btn btn-primary" value="Search">
+    </form>
+        <h1>Results</h1>
+        <p> The query is {{ query }} </p>
+        <h2> Closest Match Courses are: </h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Course Number</th>
+                    <th>Course Description</th>
+                    <th>Course Credits</th>
+                    <th>Match Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in results.iterrows() %}
+                <tr>
+                    <td>{{ course[1]['title'] }}</td>
+                    <td>{{ course[1]['course_code'] }}</td>
+                    <td>{{ course[1]['description'] }}</td>
+                    <td>{{ course[1]['credits'] }}</td>
+                    <td>{{ course[1]['similarity'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+    </body>
+</html>
