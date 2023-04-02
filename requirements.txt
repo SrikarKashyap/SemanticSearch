@@ -1,8 +1,10 @@
 numpy
 matplotlib
+scipy
+sklearn
+tenacity
+plotly
 flask
 pandas
 openai
 tiktoken
-
-
