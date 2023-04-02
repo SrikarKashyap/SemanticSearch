@@ -21,18 +21,28 @@
         </style>
     </head>
     <body>
-        <h1>Semantic Search for Fall 2023 Courses - Indiana University</h1>
-        <h4>CSCI, DSCI, STAT, INFO, ILS and ENGR Courses</h4>
-        <h5>By Srikar Kashyap Pulipaka</h5>
+        <!-- body in a container-->
+        <div class="container">
+        <!-- 4 units div -->
+        <div class="col-md-1">
+            <img src="https://assets.iu.edu/brand/3.3.x/trident-large.png" alt="IU Logo" style="width:100px;height:100px;">
+        </div>
+        <div class="col-md-11"><h1>Semantic Search for Fall 2023 Courses - Indiana University</h1></div>
+        
+        <h4>CSCI, DSCI, STAT, INFO, ILS and ENGR courses only</h4>
+        <h5>By Srikar Kashyap Pulipaka <a href="mailto:spulipa@iu.edu">(spulipa@iu.edu)</a></h5>
+        <h6><a href="about">About</a></h6>
         <br><br>
-    <p> Enter your search query in the below box and click on search to get your recommended courses! </p>
-    <p> Examples: machine learning systems, web development, software development, etc </p>
+    <p> <b>Semantic Search enables you to search by meaning, not just keywords. </b></p>
+        <p>It can help you find courses even if the exact keyword doesn't exist in the course description! </p>
+    <p> <b>Examples</b>: machine learning systems, web development, software development, practical data science </p>
     <!-- bootstrap form using bootstrap button-->
     <form action="search" method="post">
-        <input type="text" name="query" placeholder="Search here...">
+        <input type="text" name="query" placeholder="Search here..." >
         <input type="checkbox" name="graduate" value="graduate"> Only Graduate Courses
        <!-- bootstrap submit button -->
         <input type="submit" class="btn btn-primary" value="Search">
     </form>
+</div>
     </body>
 </html>

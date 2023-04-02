@@ -46,11 +46,14 @@ def index():
 def search():
     query = flask.request.form['query']
     graduate = flask.request.form.get('graduate')
-    results = search_courses(query, n=5, pprint=True, graduate=graduate)
+    results = search_courses(query, n=10, pprint=True, graduate=graduate)
     results['similarity'] = results['similarity'].apply(
         lambda x: round(x, 2))
     return flask.render_template('search.html', query=query, results=results)
 
+@app.route('/about', methods=['GET'])
+def about():
+    return flask.render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

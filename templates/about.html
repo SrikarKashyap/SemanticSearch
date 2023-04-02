@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+        body {
+            background-color: #f2f2f2;
+        }
+        .container{
+            text-align: center;
+        }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class = "container">
+    <h1> Semantic Search for Courses </h1>
+    <p> This project uses Open AI Ada embeddings to find courses with similar descriptions. Inspired by the <a href='https://www.searchclasses.org/'> Cardinal Compass </a> project at Stanford.</p>
+    
+    <h3>Development steps</h3>
+    <p>1. Get list of courses and their descriptions at IU using web scraping (Python, Selenium, BeautifulSoup)</p>
+    <p>2. Use Open AI API to get embeddings for each course description (Python, Open AI API)</p>
+    <p>3. Store embeddings in a database</p>
+    <p>4. Create a web interface to search for similar courses (Python-Flask, Azure)</p>
+    <a href='/'><button class="btn btn-primary">Go Home</button></a>
+    </body>
+</html>
