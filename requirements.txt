@@ -1,6 +1,8 @@
+numpy
+matplotlib
 flask
 pandas
 openai
 tiktoken
-matplotlib
-numpy
+
+
