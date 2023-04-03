@@ -9,16 +9,19 @@ openai.api_key = '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'
 
 
 def search_courses(course_description, n=3, pprint=True, graduate=False):
+    """
+    Search courses based on course description
+
+    Code adapted from OpenAI Cookbook
+    """
     df = pd.read_csv('courses_cs_all_with_embeddings.csv', converters={
                      "embedding": eval}, encoding='utf-8-sig')
-    # print(df.head(2))
     if graduate:
         df = df[df.course_number >= 500]
     course_embedding = get_embedding(
         course_description,
         engine="text-embedding-ada-002"
     )
-    # print(course_embedding)
     df["similarity"] = df.embedding.apply(
         lambda x: cosine_similarity(x, course_embedding))
 
@@ -26,11 +29,6 @@ def search_courses(course_description, n=3, pprint=True, graduate=False):
         df.sort_values("similarity", ascending=False)
         .head(n)
     )
-
-    # if pprint:
-    #     for r in results:
-    #         print(r[:200])
-    #         print()
     return results
 
 
@@ -44,6 +42,9 @@ def index():
 
 @app.route('/search', methods=['POST'])
 def search():
+    """
+    Retrieve search query from user and return search results
+    """
     query = flask.request.form['query']
     graduate = flask.request.form.get('graduate')
     results = search_courses(query, n=10, pprint=True, graduate=graduate)
@@ -51,9 +52,11 @@ def search():
         lambda x: round(x, 2))
     return flask.render_template('search.html', query=query, results=results)
 
+
 @app.route('/about', methods=['GET'])
 def about():
     return flask.render_template('about.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
