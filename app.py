@@ -4,8 +4,9 @@ import pandas as pd
 from openai.embeddings_utils import get_embedding, cosine_similarity
 import tiktoken
 import openai
+import os
 
-openai.api_key = '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'
+openai.api_key = open('.license').read().strip()
 
 
 def search_courses(course_description, n=3, pprint=True, graduate=False):
